@@ -11,7 +11,7 @@
   `$ git clone git@github.com:kanazawakeima/Cupmengram.git
    $ cd cupmenlog
    $ bundle install
-   $ rails db:create && rails db:migrate
+   $ rails db:create && rails db:migrate 
    $ rails s`
 
 # カタログ設計
