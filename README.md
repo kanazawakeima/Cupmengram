@@ -8,11 +8,14 @@
 # カリキュラム外の技術
   - 口コミ機能
 # 実行手順
-  `$ git clone git@github.com:kanazawakeima/Cupmengram.git
+
+```
+   $ git clone git@github.com:kanazawakeima/Cupmengram.git
    $ cd cupmenlog
    $ bundle install
-   $ rails db:create && rails db:migrate 
-   $ rails s`
+   $ rails db:create && rails db:migrate
+   $ rails s
+```
 
 # カタログ設計
 (https://docs.google.com/spreadsheets/d/1oqFJ2t8uM4rwDOMrgVbED2uiDx-A9wawKB6sDyYpUzs/edit#gid=734891603)
