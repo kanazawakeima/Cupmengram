@@ -18,9 +18,9 @@
 ```
 
 # カタログ設計
-(https://docs.google.com/spreadsheets/d/1oqFJ2t8uM4rwDOMrgVbED2uiDx-A9wawKB6sDyYpUzs/edit#gid=734891603)
+(https://docs.google.com/spreadsheets/d/1oqFJ2t8uM4rwDOMrgVbED2uiDx-A9wawKB6sDyYpUzs/edit?usp=sharing)
 # テーブル定義書
-(https://docs.google.com/spreadsheets/d/1oqFJ2t8uM4rwDOMrgVbED2uiDx-A9wawKB6sDyYpUzs/edit#gid=388608875)
+(https://docs.google.com/spreadsheets/d/1oqFJ2t8uM4rwDOMrgVbED2uiDx-A9wawKB6sDyYpUzs/edit?usp=sharing)
 # ワイヤーフレーム
 (https://app.diagrams.net/#G1rtxzZzC_BY7QvJqRpDVviXzibHiHQYJi)
 
