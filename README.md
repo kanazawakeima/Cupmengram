@@ -23,7 +23,7 @@
 # テーブル定義書
 (https://docs.google.com/spreadsheets/d/1oqFJ2t8uM4rwDOMrgVbED2uiDx-A9wawKB6sDyYpUzs/edit?usp=sharing)
 # ワイヤーフレーム
-(https://app.diagrams.net/#G1rtxzZzC_BY7QvJqRpDVviXzibHiHQYJi)
+(https://drive.google.com/file/d/1rtxzZzC_BY7QvJqRpDVviXzibHiHQYJi/view?usp=sharing)
 
 # ER図
 <img width="596" alt="スクリーンショット 2022-06-02 17 30 56" src="https://user-images.githubusercontent.com/100675010/171588980-76c59f1d-20b7-470e-8055-7ced4f086ce1.png">
