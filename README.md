@@ -29,4 +29,4 @@
 
 
 # 画面遷移図
-<img width="1033" alt="スクリーンショット 2022-06-02 17 18 52" src="https://user-images.githubusercontent.com/100675010/171589104-4340ee3a-1c6c-49b5-a2f4-900cb87af789.png">
+<img width="964" alt="スクリーンショット 2022-06-07 1 03 55" src="https://user-images.githubusercontent.com/100675010/172202036-075df688-11aa-4991-b12b-49004d8a78b2.png">
