@@ -25,7 +25,7 @@
 (https://drive.google.com/file/d/1rtxzZzC_BY7QvJqRpDVviXzibHiHQYJi/view?usp=sharing)
 
 # ER図
-<img width="466" alt="スクリーンショット 2022-06-07 18 01 48" src="https://user-images.githubusercontent.com/100675010/172341284-9616acd2-dc38-459a-8a4e-8b6220d1c55b.png">
+<img width="580" alt="スクリーンショット 2022-06-08 10 29 13" src="https://user-images.githubusercontent.com/100675010/172511805-3c89b4bd-9f15-4d1e-9309-f6bbc540ad53.png">
 
 
 # 画面遷移図
