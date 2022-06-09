@@ -1,0 +1,23 @@
+<h1>マイページ</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <% if @user.profile_image? %>
+    <%= image_tag @user.profile_image.url, class: "profile_image is-rounded" %>
+  <% else %>
+    <%= image_tag ("images-1.jpg"), class: "profile_image is-rounded" %>
+  <% end %>
+</p>
+
+
+
+<p>
+  <strong>Profile:</strong>
+  <%= @user.profile %>
+</p>
+
+<%= link_to '編集', edit_user_path(@user) %> |
+<%= link_to 'Back', foods_path %>

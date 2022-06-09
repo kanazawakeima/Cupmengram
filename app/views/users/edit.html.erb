@@ -1,0 +1,54 @@
+<h1>編集画面</h1>
+<% if @user.errors.any? %>
+  <div class="notification is-danger">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_for @user do |f| %>
+          <div class="field">
+            <%= f.label :username, "ユーザー名", class: "label" %>
+            <p class="control has-icons-left">
+            <%= f.text_field :username, class: "input" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+           </p>
+          </div>
+
+          <div class="field">
+            <%= f.label :email, "メールアドレス", class: "label" %>
+            <p class="control has-icons-left">
+             <%= f.email_field :email, class: "input" %>
+             <span class="icon is-small is-left">
+               <i class="fas fa-envelope"></i>
+             </span>
+           </p>
+          </div>
+
+          <div class="field">
+            <%= f.label :profile, "プロフィール", class: "label" %>
+            <%= f.text_area :profile, class: "textarea" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :profile_image, "プロフィール画像", class: "label" %>
+            <%= f.file_field :profile_image %>
+          </div>
+
+          <%= f.submit "更新", class: "button is-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

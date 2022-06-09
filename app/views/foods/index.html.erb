@@ -2,16 +2,22 @@
 
 <h1>Foods</h1>
 <h2>ラーメン検索</h2>
-<%= search_form_for @q, url: search_foods_path do |f| %>
-  <%= f.label :name_cont, '商品名' %>
-  <%= f.search_field :name_cont %>
-  <%= f.label :taste_id_eq, "味を選択する" %>
-  <%= f.select :taste_eq, options_for_select(Food.tastes),{prompt: "味を選択してください"} %>
-  <%= f.label :genre_eq, "系統を選択する" %>
-  <%= f.select :genre_eq, options_for_select(Food.genres),{prompt: "系統を選択してください"} %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
+<div>
+  <%= search_form_for @q, url: search_foods_path do |f| %>
+    <%= f.label :name_cont, '商品名' %>
+    <%= f.search_field :name_cont, class: "input is-small" %>
+    <div class="select is-small">
+      <%= f.select :taste_eq, options_for_select(Food.tastes),{prompt: "味を選択してください"} %>
+    </div>
+    <div class="select is-small">
+      <%= f.select :genre_eq, options_for_select(Food.genres),{prompt: "系統を選択してください"} %>
+    </div>
+    <%= f.submit '検索', class: "button is-small" %>
+  <% end %>
+</div>
+
+
+
 
 <table>
   <thead>
