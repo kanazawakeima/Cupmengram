@@ -2,5 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .food_image img {
-  width: 100px;
+  width: 150px;
+}
+
+.star-rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 25px;
+}
+
+.star-rating-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #FFCC33;
+}
+
+.star-rating-back {
+  color: #CCCCCC;
+}
+
+// .average-score {
+//   display: flex;
+// }
+
+.average-score-display {
+  font-size: 16px;
 }

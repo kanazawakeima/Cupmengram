@@ -1,39 +1,39 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @food.name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <div class="food_image"><%= image_tag @food.image.url %></div>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @food.content %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @food.company %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @food.price %>
-</p>
-
-<p>
-  <strong>Taste:</strong>
-  <%= @food.taste %>
-</p>
-
-<p>
-  <strong>Genre:</strong>
-  <%= @food.genre %>
-</p>
-
-<%= link_to 'Edit', edit_food_path(@food) %> |
-<%= link_to 'Back', foods_path %>
+<div class="tile is-ancestor">
+  <div class="tile is-6 is-vertical is-parent">
+    <div class="tile is-child box">
+      <div class="food_image">
+        <%= image_tag @food.image.url %>
+      </div>
+      <div class="content average-score">
+        <div class="star-rating mb-2">
+          <div class="star-rating-front" style="width: <%= @food.review_score_percentage %>%">★★★★★</div>
+          <div class="star-rating-back">★★★★★</div>
+        </div>
+        <div class="average-score-display ml-3 pt-2">
+          <%= @food.avg_score %>点（<%= @food.reviews.count %>件のレビュー）
+        </div>
+      </div>
+    </div>
+    <div class="tile is-child box">
+      <p class="title">レビューを書く</p>
+      <%= render 'reviews/form', review: @review, food: @food %>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <h1 class="title"><%= @food.name %></h1>
+      <hr>
+      <h2>・<%= @food.company %></h2>
+      <p><%= @food.content %></p>
+      <hr>
+      <h2>・値段:<%= @food.price %>円</h2>
+      <hr>
+      <h2>・味:<%= @food.taste %>味 :<%= @food.genre %>系</h2>
+      <hr>
+      <%= link_to 'レビューをみる', food_reviews_path(@food.reviews) %>
+      <hr>
+      <%= link_to 'ラーメン一覧に戻る', foods_path %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<section class="section mt-6">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-7">
+        <div class="card mb-6">
+          <header class="card-header">
+            <p class="card-header-title">
+              <%= @food.name %>
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="card-image">
+              <figure class="image is-128x128">
+                <%= image_tag @food.image.url, class: "food_image" %>
+              </figure>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="content average-score">
+              <div class="star-rating mb-2">
+                <div class="star-rating-front" style="width: <%= @food.review_score_percentage %>%">★★★★★</div>
+                <div class="star-rating-back">★★★★★</div>
+              </div>
+              <div class="average-score-display ml-3 pt-2">
+                <%= @food.avg_score %>点（<%= @food.reviews.count %>件のレビュー）
+              </div>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <%= link_to food_path(@food), class: "button card-footer-item" do %>
+              戻る
+          　<% end %>
+          </footer>
+        </div>
+        <table class="table is-fullwidth has-text-centered">
+          <thead>
+            <tr>
+              <th>ユーザー</th><th>点数</th><th>内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @reviews.each do |review| %>
+              <tr>
+                <td><%= review.user.username %></td>
+                <td><%= review.score %></td>
+                <td><%= review.content %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

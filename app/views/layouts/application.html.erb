@@ -10,6 +10,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<header class="header">
+
+</header>
+
   <body>
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
@@ -22,7 +26,7 @@
       <div class="navbar-brand">
         <p class="navbar-item">
           <%= link_to foods_path do %>
-           <strong class="is-size-3" style="font-family: cursive; color: black;">cupmen log</strong>
+           <strong class="is-size-3" style="font-family: cursive; color: #fff; text-shadow:1px 1px 0 #f00,-1px 1px 0 #f00,1px -1px 0 #f00,-1px -1px 0 #f00;">Cupmen log</strong>
           <% end %>
         </p>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -65,4 +69,43 @@
     </nav>
     <%= yield %>
   </body>
+  <footer class="footer has-background-warning">
+    <div class="content has-text-centered">
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <a href="#">
+            プライバシー
+          </a>
+        </div>
+        <div class="level-item has-text-centered">
+          <a href="#">
+            利用規約
+          </a>
+        </div>
+        <div class="level-item has-text-centered">
+          <a href="#">
+            免責事項
+          </a>
+        </div>
+        <div class="level-item has-text-centered">
+          <a href="#">
+            採用情報
+          </a>
+        </div>
+        <div class="level-item has-text-centered">
+          <a href="#">
+            お問い合わせ・ヘルプ
+          </a>
+        </div>
+        <div class="level-item has-text-centered">
+          <a href="#">
+            ご意見・ご要望
+          </a>
+        </div>
+      </nav>
+      <div>
+        © JOHOBASE
+      </div>
+    </div>
+  </footer>
 </html>

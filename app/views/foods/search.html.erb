@@ -1,34 +1,40 @@
 <h1>検索結果</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th>Content</th>
-      <th>Company</th>
-      <th>Price</th>
-      <th>Taste</th>
-      <th>Genre</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @results.each do |food| %>
-      <tr>
-        <td><%= food.name %></td>
-        <td class="food_image"><%= image_tag food.image.url %></td>
-        <td><%= food.content %></td>
-        <td><%= food.company %></td>
-        <td><%= food.price %></td>
-        <td><%= food.taste %></td>
-        <td><%= food.genre %></td>
-        <td><%= link_to 'Show', food %></td>
-        <td><%= link_to 'Edit', edit_food_path(food) %></td>
-        <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @results.each do |food| %>
+        <div class="column is-3">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-image">
+                <figure class="image is-128x128">
+                  <%= link_to food_path(food) do %>
+                    <%= image_tag food.image.url, class: "food_image" %>
+                  <% end %>
+                </figure>
+              </div>
+            </div>
+            <div class="card-content">
+              <%= link_to food.name, food_path(food) %>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= food.review_score_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back">★★★★★</div>
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                    <%= food.avg_score %>点（<%= food.reviews.count %>件のレビュー）
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
 
 <%= link_to 'Top', foods_path %>

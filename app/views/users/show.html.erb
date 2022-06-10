@@ -1,23 +1,38 @@
-<h1>マイページ</h1>
-<p>
-  <strong>Name:</strong>
-  <%= @user.username %>
-</p>
+<h1>プロフィール</h1>
 
-<p>
-  <% if @user.profile_image? %>
-    <%= image_tag @user.profile_image.url, class: "profile_image is-rounded" %>
-  <% else %>
-    <%= image_tag ("images-1.jpg"), class: "profile_image is-rounded" %>
-  <% end %>
-</p>
-
-
-
-<p>
-  <strong>Profile:</strong>
-  <%= @user.profile %>
-</p>
-
-<%= link_to '編集', edit_user_path(@user) %> |
-<%= link_to 'Back', foods_path %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="columns is-centered">
+          <div class="column is-4">
+            <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
+              <% if @user.profile_image? %>
+                <%= image_tag @user.profile_image.url, class: "profile_image is-rounded" %>
+              <% else %>
+                <%= image_tag ("images-1.jpg"), class: "profile_image is-rounded" %>
+              <% end %>
+            </figure>
+          </div>
+          <div class="column is-8">
+            <table class="table is-fullwidth">
+              <tr>
+                <td class="is-size-4">
+                  <strong><%= @user.username %></strong>
+                </td>
+                <td>
+                  <% if @user.id == current_user.id %>
+                    <%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to '戻る', foods_path, class: "button is-primary" %>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
