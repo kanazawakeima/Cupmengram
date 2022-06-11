@@ -11,6 +11,7 @@ class FoodsController < ApplicationController
   # GET /foods/1 or /foods/1.json
   def show
     @review = Review.new
+    @favorite = Favorite.new
   end
 
   # GET /foods/new

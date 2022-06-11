@@ -1,37 +1,40 @@
 <h1>プロフィール</h1>
-
 <section class="section">
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="columns is-centered">
-          <div class="column is-4">
-            <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
-              <% if @user.profile_image? %>
-                <%= image_tag @user.profile_image.url, class: "profile_image is-rounded" %>
-              <% else %>
-                <%= image_tag ("images-1.jpg"), class: "profile_image is-rounded" %>
+    <div class="columns">
+      <div class="column is-two-fifths">
+        <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
+          <% if @user.profile_image? %>
+            <%= image_tag @user.profile_image.url, class: "profile_image is-rounded" %>
+          <% else %>
+            <%= image_tag ("images-1.jpg"), class: "profile_image is-rounded" %>
+          <% end %>
+        </figure>
+      </div>
+      <div class="column is-6">
+        <table>
+          <tr>
+            <td>
+              <strong class="is-size-4"><%= @user.username %></strong>
+              <br>
+              <% if @user.id == current_user.id %>
+                <%= @user.email %>
               <% end %>
-            </figure>
-          </div>
-          <div class="column is-8">
-            <table class="table is-fullwidth">
-              <tr>
-                <td class="is-size-4">
-                  <strong><%= @user.username %></strong>
-                </td>
-                <td>
-                  <% if @user.id == current_user.id %>
-                    <%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to '戻る', foods_path, class: "button is-primary" %>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
+            </td>
+            <td>
+              <% if @user.id == current_user.id %>
+                <%= link_to "プロフィールを編集", edit_user_path(@user), class: "button is-small" %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+        <table class="table is-fullwidth">
+          <tr>
+            <td>
+              <%= @user.profile %>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>

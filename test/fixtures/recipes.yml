@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  food: one
+  recipe_name: MyString
+  recipe_content: MyText
+  recipe_image: MyString
+
+two:
+  food: two
+  recipe_name: MyString
+  recipe_content: MyText
+  recipe_image: MyString
