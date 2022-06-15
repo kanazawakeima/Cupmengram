@@ -1,33 +1,45 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Recipes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Food</th>
-      <th>Recipe name</th>
-      <th>Recipe content</th>
-      <th>Recipe image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.food_id %></td>
-        <td><%= recipe.recipe_name %></td>
-        <td><%= recipe.recipe_content %></td>
-        <td><%= recipe.recipe_image %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="columns">
+  <div class="column is-3">
+    <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
+      <%= image_tag @food.image.url %>
+    </figure>
+  </div>
+  <div class="column">
+    <h3 class="title is-3 has-text-info"><%= @food.name %>のアレンジレシピ</h3>
+    <br>
+    <%= link_to new_food_recipe_path, class: "button is-primary is-outlined" do %>
+      アレンジレシピを投稿する
     <% end %>
-  </tbody>
-</table>
+    <%= link_to food_path(@food), class: "button is-danger is-outlined" do %>
+      戻る
+    <% end %>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @recipes.each do |recipe| %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-content">
+              <%= link_to recipe.recipe_name, food_recipe_path(@food, recipe) %>
+            </div>
+            <div class="card-content">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <%= link_to food_recipe_path(@food, recipe) do %>
+                    <%= image_tag recipe.recipe_image.url %>
+                  <% end %>
+                </figure>
+              </div>
+            </div>  
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
 
 <br>
-
-<%= link_to 'New Recipe', new_recipe_path %>

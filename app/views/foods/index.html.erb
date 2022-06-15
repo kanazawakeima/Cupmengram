@@ -1,6 +1,13 @@
-<p id="notice"><%= notice %></p>
+<section class="hero is-small has-background-danger-light">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        ラーメン一覧
+      </h1>
+    </div>
+  </div>
+</section>
 
-<h1>Foods</h1>
 <h2>ラーメン検索</h2>
 <div>
   <%= search_form_for @q, url: search_foods_path do |f| %>
@@ -55,3 +62,4 @@
     </div>
   </div>
 </section>
+<%= paginate @foods %>

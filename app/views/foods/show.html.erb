@@ -50,7 +50,7 @@
       <hr>
       <h2>・味:<%= @food.taste %>味 :<%= @food.genre %>系</h2>
       <hr>
-      <%= link_to food_recipes_path(@food.recipes), class: "button is-danger is-outlined" do %>
+      <%= link_to food_recipes_path(@food), class: "button is-danger is-outlined" do %>
         アレンジレシピをみる
       <% end %>
       <hr>

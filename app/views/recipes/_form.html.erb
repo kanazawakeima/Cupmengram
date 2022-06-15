@@ -1,33 +1,62 @@
-<%= form_with(model: recipe, local: true) do |form| %>
-  <% if recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
-      <ul>
-        <% recipe.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if recipe.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
-
-  <div class="field">
-    <%= form.label :recipe_name %>
-    <%= form.text_field :recipe_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :recipe_content %>
-    <%= form.text_area :recipe_content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :recipe_image %>
-    <%= form.file_field :recipe_image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <ul>
+      <% recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
+<div class="columns">
+  <div class="column is-3">
+    <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
+      <%= image_tag @food.image.url %>
+    </figure>
+  </div>
+  <div class="column">
+    <h3 class="title is-3 has-text-info"><%= @food.name %>のアレンジレシピ</h3>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <%= form_with(model: [@food, @recipe], local: true) do |form| %>
+          <div class="field">
+            <%= form.label :recipe_name, "レシピ名", class: "label" %>
+            <%= form.text_field :recipe_name, class: "input" %>
+          </div>
+
+          <div class="field">
+            <%= form.label :recipe_content, "作り方", class: "label" %>
+            <%= form.text_area :recipe_content, class: "textarea" %>
+          </div>
+          <div>
+            例文
+            <textarea id="bar" name="" rows="5" cols="76">
+              材料:ラーメン　１個
+              　　 玉子　２個
+                  ご飯　１パック
+                  ネギ　少々
+                  コショウ　少々
+                  油　少量
+              手順１:カップラーメンを袋などに入れて砕く。
+              手順２:カップに戻して麺が浸るくらい水を入れる。
+              手順３:フライパンに油をひき、といた卵と茶碗1杯分のご飯を炒める。砕いた麺、具材、スープを入れ、水分が飛ぶまで炒めたら完成。 ※フライパン調理の際はやけどにご注意ください
+          　</textarea>
+          </div>
+
+          <div class="field">
+            <%= form.label :recipe_image, "写真", class: "label" %>
+            <%= form.file_field :recipe_image %>
+          </div>
+
+          <%= form.submit '投稿', class: "button is-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

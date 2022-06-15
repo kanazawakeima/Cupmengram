@@ -47,6 +47,9 @@
           </div>
 
           <%= f.submit "更新", class: "button is-rounded" %>
+          <%= link_to user_path(@user), class: "button is-rounded" do %>
+            戻る
+          <% end %>
         <% end %>
       </div>
     </div>

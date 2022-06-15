@@ -1,5 +1,6 @@
-<h1>New Recipe</h1>
 
 <%= render 'form', recipe: @recipe %>
 
-<%= link_to 'Back', recipes_path %>
+<%= link_to food_recipes_path, class: "button is-rounded" do %>
+戻る
+<% end %>

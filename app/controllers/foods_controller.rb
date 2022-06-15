@@ -5,13 +5,12 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all
+    @foods = Food.page(params[:page]).per(12)
   end
 
   # GET /foods/1 or /foods/1.json
   def show
     @review = Review.new
-    @favorite = Favorite.new
   end
 
   # GET /foods/new

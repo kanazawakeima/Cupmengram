@@ -1,4 +1,15 @@
-<h1>プロフィール</h1>
+<section class="hero is-small has-background-danger-light">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        マイページ
+      </h1>
+    </div>
+  </div>
+</section>
+<% if current_user.admin? && (current_user == @user) %>
+  <%= link_to '管理者画面へ', rails_admin_path %>
+<% end %>
 <section class="section">
   <div class="container">
     <div class="columns">
@@ -7,7 +18,7 @@
           <% if @user.profile_image? %>
             <%= image_tag @user.profile_image.url, class: "profile_image is-rounded" %>
           <% else %>
-            <%= image_tag ("images-1.jpg"), class: "profile_image is-rounded" %>
+            <%= image_tag ("download-1.png"), class: "profile_image is-rounded" %>
           <% end %>
         </figure>
       </div>
@@ -35,7 +46,45 @@
             </td>
           </tr>
         </table>
+        <%= link_to foods_path, class: "button is-rounded" do %>
+          戻る
+        <% end %>
       </div>
+    </div>
+  </div>
+</section>
+<section class="hero is-small has-background-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        お気に入りしたラーメン
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @user.favorites.each do |favorite| %>
+        <div class="column is-3">
+          <div class="card">
+            <div class="card-content">
+              <%= link_to favorite.food.name, food_path(favorite.food) %>
+            </div>
+            <div class="card-content">
+              <div class="card-image">
+                <figure class="image is-128x128">
+                  <%= link_to food_path(favorite.food) do %>
+                    <%= image_tag favorite.food.image.url, class: "food_image" %>
+                  <% end %>
+                </figure>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>
