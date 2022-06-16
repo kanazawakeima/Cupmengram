@@ -3,32 +3,32 @@
 <div class="columns">
   <div class="column">
     <div class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      <%= @recipe.recipe_name %>
-    </p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <%= image_tag @recipe.recipe_image.url %>
+      <header class="card-header">
+        <p class="card-header-title">
+          <%= @recipe.recipe_name %>
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <%= image_tag @recipe.recipe_image.url %>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="content">
+          投稿者<%= @recipe.user.username %>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <% if @recipe.user == current_user %>
+          <%= link_to edit_food_recipe_path(@food, @recipe), class: "button card-footer-item" do %>
+            編集
+          <% end %>
+          <%= link_to food_recipe_path(@food, @recipe), method: :delete, data:{confirm: "削除しますか？"}, class: "button card-footer-item" do %>
+            削除
+          <% end %>
+        <% end %>
+      </footer>
     </div>
-  </div>
-  <div class="card-content">
-    <div class="content">
-      投稿者<%= @recipe.user.username %>
-    </div>
-  </div>
-  <% if @recipe.user == current_user %>
-    <footer class="card-footer">
-      <%= link_to edit_food_recipe_path(@food, @recipe), class: "button card-footer-item" do %>
-        編集
-      <% end %>
-      <%= link_to food_recipe_path(@food, @recipe), method: :delete, data:{confirm: "削除しますか？"}, class: "button card-footer-item" do %>
-        削除
-  　  <% end %>
-    </footer>
-  <% end %>
-</div>
   </div>
   <div class="column">
     <%= simple_format @recipe.recipe_content %>

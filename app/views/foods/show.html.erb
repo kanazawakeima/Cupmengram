@@ -28,6 +28,7 @@
       <div class="columns">
         <div class="column is-8">
           <h1 class="title"><%= @food.name %></h1>
+          <p><%= @food.content %></p>
         </div>
         <div class="column">
           <% if current_user.already_favorited?(@food) %>
@@ -44,7 +45,6 @@
       </div>
       <hr>
       <h2>・<%= @food.company %></h2>
-      <p><%= @food.content %></p>
       <hr>
       <h2>・値段:<%= @food.price %>円</h2>
       <hr>

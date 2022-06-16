@@ -12,8 +12,14 @@
           <br>
           <%= link_to "ラーメンをみる", foods_path, class: "button is-danger is-fullwidth" %>
           <br>
-          <%= link_to "ログイン", new_user_session_path, class: "button is-fullwidth" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "button is-fullwidth" %>
+          <% if user_signed_in? %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "button is-fullwidth" do %>
+              ログアウト
+            <% end %>
+          <% else %>
+            <%= link_to "ログイン", new_user_session_path, class: "button is-fullwidth" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "button is-fullwidth" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -22,14 +28,14 @@
 <section class="section">
   <article class="media">
     <div class="media-content">
-       <div class="content has-text-centered">
-　　　    <h3 class="title is-3">cupmen logとは</h3>
-         <h5 class="title is-5">スーパーやコンビニで売られているカップラーメンの評価をみんなでつけて行こう</h5>
-         <h5 class="title is-5">というアプリになっています。</h5>
-         <h5 class="title is-5">定番のラーメンから新作のラーメンまで素直な評価が一覧で見れます。</h5>
-         <h5 class="title is-5">また、ラーメンには色々な楽しみ方があります。</h5>
-         <h5 class="title is-5">ログインをしていただくとみんなが発明したラーメンのアレンジレシピを見たり、投稿ができるようになります。</h5>
-　　　  </div>
-     </div>
+      <div class="content has-text-centered">
+        <h3 class="title is-3">cupmen logとは</h3>
+        <h5 class="title is-5">スーパーやコンビニで売られているカップラーメンの評価をみんなでつけて行こう</h5>
+        <h5 class="title is-5">というアプリになっています。</h5>
+        <h5 class="title is-5">定番のラーメンから新作のラーメンまで素直な評価が一覧で見れます。</h5>
+        <h5 class="title is-5">また、ラーメンには色々な楽しみ方があります。</h5>
+        <h5 class="title is-5">ログインをしていただくとみんなが発明したラーメンのアレンジレシピを見たり、投稿ができるようになります。</h5>
+      </div>
+    </div>
   </article>
 </section>

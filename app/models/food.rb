@@ -7,6 +7,12 @@ class Food < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
 
+  validates :name, presence: true
+  validates :image, presence: true
+  validates :company, presence: true
+  validates :price, presence: true
+  validates :taste, presence: true
+  validates :genre, presence: true
 
   def avg_score
     unless self.reviews.empty?

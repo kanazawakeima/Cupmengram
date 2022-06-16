@@ -8,21 +8,32 @@
   </div>
 </section>
 
-<h2>ラーメン検索</h2>
-<div>
-  <%= search_form_for @q, url: search_foods_path do |f| %>
-    <div class="column is-two-fifths">
-    　<%= f.search_field :name_cont, class: "input is-small", placeholder: "キーワード検索 例)日清 しょうゆ" %>
+<div class="columns is-vcentered">
+  <div class="column">
+    <h2>ラーメン検索</h2>
+    <div>
+      <%= search_form_for @q, url: search_foods_path do |f| %>
+        <div class="column is-two-thirds">
+          <%= f.search_field :name_cont, class: "input is-smallfa-solid", placeholder: "キーワード検索 例)日清 しょうゆ" %>
+        </div>
+        <div class="select is-small">
+          <%= f.select :taste_eq, options_for_select(Food.tastes),{prompt: "味を選択してください"} %>
+        </div>
+        <div class="select is-small">
+          <%= f.select :genre_eq, options_for_select(Food.genres),{prompt: "系統を選択してください"} %>
+        </div>
+        <%= f.submit '検索', class: "button is-small" %>
+      <% end %>
     </div>
-    <div class="select is-small">
-      <%= f.select :taste_eq, options_for_select(Food.tastes),{prompt: "味を選択してください"} %>
-    </div>
-    <div class="select is-small">
-      <%= f.select :genre_eq, options_for_select(Food.genres),{prompt: "系統を選択してください"} %>
-    </div>
-    <%= f.submit '検索', class: "button is-small" %>
-  <% end %>
+  </div>
+  <div class="column">
+    <% if user_signed_in? && current_user.admin? %>
+      <%= link_to "新規ラーメン追加",new_food_path, class: "button is-danger" %>
+    <% end %>
+  </div>
 </div>
+
+
 
 
 <section class="section">
@@ -56,6 +67,16 @@
                 </div>
               </div>
             </div>
+            <footer class="card-footer">
+              <% if user_signed_in? && current_user.admin? %>
+                <%= link_to edit_food_path(food), class: "button card-footer-item" do %>
+                  編集
+                <% end %>
+                <%= link_to food_path(food), method: :delete, data:{confirm: "削除しますか？"}, class: "button card-footer-item" do %>
+                  削除
+                <% end %>
+              <% end %>
+            </footer>
           </div>
         </div>
       <% end %>

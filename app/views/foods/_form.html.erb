@@ -1,52 +1,56 @@
-<%= form_with(model: food, local: true) do |form| %>
-  <% if food.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
+<% if food.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
 
-      <ul>
-        <% food.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :company %>
-    <%= form.text_field :company %>
-  </div>
-
-  <div class="field">
-    <%= form.label :値段 %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :味 %>
-    <%= form.select :taste, Food.tastes.keys, {prompt: "選択してください"} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :系統 %>
-    <%= form.select :genre, Food.genres.keys, {prompt: "選択してください"} %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <ul>
+      <% food.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <%= form_with(model: food, local: true) do |form| %>
+          <div class="field">
+            <%= form.label :name, "ラーメンの商品名", class: "label" %>
+            <%= form.text_field :name, class: "input", placeholder: "例)チキンラーメン" %>
+          </div>
+          <div class="field">
+            <%= form.label :image, "写真", class: "label" %>
+            <%= form.file_field :image %>
+          </div>
+          <div class="field">
+            <%= form.label :content, "詳細", class: "label" %>
+            <%= form.text_area :content, class: "textarea", placeholder: "例)チキンラーメンのサイトなど" %>
+          </div>
+          <div class="field">
+            <%= form.label :company, "会社名", class: "label" %>
+            <%= form.text_field :company, class: "input", placeholder: "例)日清食品" %>
+          </div>
+          <div class="field">
+            <%= form.label :price, "値段", class: "label" %>
+            <%= form.number_field :price, class: "input", placeholder: "例)160" %>
+          </div>
+          <div class="field">
+            <%= form.label :taste, "味", class: "label" %>
+            <%= form.select :taste, Food.tastes.keys, {prompt: "選択してください"}, class: "select" %>
+          </div>
+          <div class="field">
+            <%= form.label :genre, "系統", class: "label" %>
+            <%= form.select :genre, Food.genres.keys, {prompt: "選択してください"}, class: "select" %>
+          </div>
+          <div class="actions">
+            <%= form.submit '投稿', class: "button is-rounded" %>
+          </div>
+        <% end %>
+        <%= link_to foods_path, class: "button is-rounded" do %>
+          戻る
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

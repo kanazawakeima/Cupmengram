@@ -11,15 +11,18 @@
   </head>
 
 <header class="header">
-
 </header>
 
   <body>
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
+    <% if flash[:notice] %>
+      <div class="notification is-info">
+        <p class="notice"><%= notice %></p>
+      </div>
     <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
+    <% if flash[:alert] %>
+      <div class="notification is-danger">
+        <p class="alert"><%= alert %></p>
+      </div>
     <% end %>
 
     <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
@@ -63,12 +66,29 @@
                 <%= link_to new_user_registration_path, class: "button" do %>
                   新規登録
                 <% end %>
+                <%= link_to users_guest_sign_in_path, method: :post, class: "button" do %>
+                  ゲストログイン
+                <% end %>
+                <%= link_to users_admin_guest_sign_in_path, method: :post, class: "button" do %>
+                  管理者ゲストログイン
+                <% end %>
               <% end %>
             </div>
           </div>
         </div>
       </div>
     </nav>
+    <% if user_signed_in? && current_user.admin? %>
+      <section class="hero is-small is-link">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              管理者モード
+            </h1>
+          </div>
+        </div>
+      </section>
+    <% end %>
     <%= yield %>
   </body>
   <footer class="footer has-background-warning">
