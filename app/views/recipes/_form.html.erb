@@ -1,15 +1,4 @@
 
-<% if recipe.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(recipe.errors.count, "件のエラー") %></h2>
-
-    <ul>
-      <% recipe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
 <div class="columns">
   <div class="column is-3">
     <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
@@ -20,6 +9,15 @@
     <h3 class="title is-3 has-text-info"><%= @food.name %>のアレンジレシピ</h3>
   </div>
 </div>
+<div class="set_center_outer">
+  <div class="set_center_inner">
+    <% if recipe.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(recipe.errors.count, "件のエラー") %></h2>
+      </div>
+    <% end %>
+  </div>
+</div>
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
@@ -28,6 +26,9 @@
           <div class="field">
             <%= form.label :recipe_name, "レシピ名", class: "label" %>
             <%= form.text_field :recipe_name, class: "input", placeholder: "例)カップヌードルチャーハン" %>
+            <% if recipe.errors.include?(:recipe_name) %>
+              <p style="color: red;"><%= recipe.errors.full_messages_for(:recipe_name).first %>
+            <% end %>
           </div>
 
           <div class="field">
@@ -41,10 +42,16 @@
             手順１:カップラーメンを袋などに入れて砕く。
             手順２:カップに戻して麺が浸るくらい水を入れる。
             手順３:フライパンに油をひき、といた卵と茶碗1杯分のご飯を炒める。砕いた麺、具材、スープを入れ、水分が飛ぶまで炒めたら完成。 ※フライパン調理の際はやけどにご注意ください" %>
+            <% if recipe.errors.include?(:recipe_content) %>
+              <p style="color: red;"><%= recipe.errors.full_messages_for(:recipe_content).first %>
+            <% end %>
           </div>
           <div class="field">
             <%= form.label :recipe_image, "写真", class: "label" %>
             <%= form.file_field :recipe_image %>
+            <% if recipe.errors.include?(:recipe_image) %>
+              <p style="color: red;"><%= recipe.errors.full_messages_for(:recipe_image).first %>
+            <% end %>
           </div>
 
           <%= form.submit '投稿', class: "button is-success" %>

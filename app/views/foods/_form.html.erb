@@ -3,11 +3,6 @@
     <% if food.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(food.errors.count, "件のエラー") %></h2>
-        <ul>
-        <% food.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
       </div>
     <% end %>
   </div>
@@ -21,10 +16,16 @@
           <div class="field">
             <%= form.label :name, "ラーメンの商品名", class: "label" %>
             <%= form.text_field :name, class: "input", placeholder: "例)チキンラーメン" %>
+            <% if food.errors.include?(:name) %>
+              <p style="color: red;"><%= food.errors.full_messages_for(:name).first %>
+            <% end %>
           </div>
           <div class="field">
             <%= form.label :image, "写真", class: "label" %>
             <%= form.file_field :image %>
+            <% if food.errors.include?(:image) %>
+              <p style="color: red;"><%= food.errors.full_messages_for(:image).first %>
+            <% end %>
           </div>
           <div class="field">
             <%= form.label :content, "詳細", class: "label" %>
@@ -33,18 +34,30 @@
           <div class="field">
             <%= form.label :company, "会社名", class: "label" %>
             <%= form.text_field :company, class: "input", placeholder: "例)日清食品" %>
+            <% if food.errors.include?(:company) %>
+              <p style="color: red;"><%= food.errors.full_messages_for(:company).first %>
+            <% end %>
           </div>
           <div class="field">
             <%= form.label :price, "値段", class: "label" %>
             <%= form.number_field :price, class: "input", placeholder: "例)160" %>
+            <% if food.errors.include?(:price) %>
+              <p style="color: red;"><%= food.errors.full_messages_for(:price).first %>
+            <% end %>
           </div>
           <div class="field">
             <%= form.label :taste, "味", class: "label" %>
             <%= form.select :taste, Food.tastes.keys, {prompt: "選択してください"}, class: "select" %>
+            <% if food.errors.include?(:taste) %>
+              <p style="color: red;"><%= food.errors.full_messages_for(:taste).first %>
+            <% end %>
           </div>
           <div class="field">
             <%= form.label :genre, "系統", class: "label" %>
             <%= form.select :genre, Food.genres.keys, {prompt: "選択してください"}, class: "select" %>
+            <% if food.errors.include?(:genre) %>
+              <p style="color: red;"><%= food.errors.full_messages_for(:genre).first %>
+            <% end %>
           </div>
           <div class="actions">
             <%= form.submit '投稿', class: "button is-rounded" %>
