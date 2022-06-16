@@ -43,7 +43,7 @@ div.actions {
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid #f5c6cb;
   padding: 7px 7px 0;
   margin-bottom: 20px;
   background-color: #f0f0f0; }
@@ -54,8 +54,8 @@ div.actions {
   padding: 5px 5px 5px 15px;
   font-size: 12px;
   margin: -7px -7px 0;
-  background-color: #c00;
-  color: #fff; }
+  background-color: #f8d7da;
+  color: #721c24; }
 
 #error_explanation ul li {
   font-size: 12px;
@@ -63,3 +63,12 @@ div.actions {
 
 label {
   display: block; }
+
+  .set_center_outer {
+    text-align: center;
+  }
+
+  .set_center_inner {
+    display: inline-block;
+    text-align: left;
+  }

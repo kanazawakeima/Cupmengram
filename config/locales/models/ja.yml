@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    attributes:
+      food:
+        name: 商品名
+        image: 写真
+        company: 会社名
+        price: 値段
+        taste: 味
+        genre: 系統
+      recipe:
+        recipe_name: レシピ名
+        recipe_content: 作り方
+        recipe_image: 完成写真

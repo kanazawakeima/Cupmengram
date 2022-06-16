@@ -1,14 +1,17 @@
-<% if food.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
-
-    <ul>
-      <% food.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+<div class="set_center_outer">
+  <div class="set_center_inner">
+    <% if food.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(food.errors.count, "件のエラー") %></h2>
+        <ul>
+        <% food.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 <section class="section">
   <div class="container">
