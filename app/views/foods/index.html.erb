@@ -33,9 +33,27 @@
   </div>
 </div>
 
+<div class="columns">
+  <div class="column is-one-quarter">
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link">
+        並び替え
+      </a>
 
-<%= sort_link(@q, :price, "値段") %>
-<%= sort_link(@q, :review_score, "人気") %>
+      <div class="navbar-dropdown is-hoverable">
+        <div class="navbar-item">
+          <%= sort_link(@q, :created_at, "新着順") %>
+        </div>
+        <div class="navbar-item">
+          <%= sort_link(@q, :price, "値段") %>
+        </div>
+        <div class="navbar-item">
+          <%= sort_link(@q, :scores, "人気") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <section class="section">
   <div class="container">

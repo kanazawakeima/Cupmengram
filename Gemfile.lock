@@ -100,7 +100,13 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.10.2)
       devise (>= 4.8.0)
+    diff-lcs (1.5.0)
     erubi (1.10.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faker (2.21.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
@@ -211,6 +217,23 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rspec-core (3.9.3)
+      rspec-support (~> 3.9.3)
+    rspec-expectations (3.9.4)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-rails (3.9.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.4)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
@@ -293,6 +316,7 @@ DEPENDENCIES
   carrierwave
   devise
   devise-i18n
+  factory_bot_rails
   faker
   jbuilder (~> 2.7)
   kaminari
@@ -306,8 +330,8 @@ DEPENDENCIES
   rails_admin (~> 3.0)
   ransack
   rexml
+  rspec-rails (~> 3.8)
   sass-rails (>= 6)
-  selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
