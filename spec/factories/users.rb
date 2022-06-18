@@ -11,4 +11,10 @@ FactoryBot.define do
     password {'123456'}
     admin {'true'}
   end
+  factory :clone_user, class: User do
+    username {'clone'}
+    email {'clone@clone.com'}
+    password {'123456'}
+    admin {'false'}
+  end
 end

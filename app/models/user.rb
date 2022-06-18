@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :recipes, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :fevorite_foods, through: :favorites,source: :food
+  validates :username, presence: true
   def already_favorited?(food)
     self.favorites.exists?(food_id: food.id)
   end

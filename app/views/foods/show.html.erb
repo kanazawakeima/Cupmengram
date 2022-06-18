@@ -33,11 +33,11 @@
         <div class="column">
           <% if current_user.already_favorited?(@food) %>
             <%= link_to food_favorite_path(@food), method: :delete do %>
-              <i class="fa-solid fa-star like"></i>
+              <i class="fa-solid fa-star like" id="delete_like"></i>
             <% end %>
           <% else %>
             <%= link_to food_favorites_path(@food), method: :post do %>
-              <i class="fa-regular fa-star like"></i>
+              <i class="fa-regular fa-star like" id="like"></i>
             <% end %>
           <% end %>
           <%= @food.favorites.count %>いいね
