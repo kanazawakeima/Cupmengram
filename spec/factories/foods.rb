@@ -7,6 +7,7 @@ FactoryBot.define do
     price {'100'}
     taste {'しょうゆ'}
     genre {'あっさり'}
+    scores {'5'}
   end
 
   factory :second_food, class: Food do
@@ -17,5 +18,17 @@ FactoryBot.define do
     price {'200'}
     taste {'しお'}
     genre {'コッテリ'}
+    scores {'4'}
+  end
+
+  factory :clone_food, class: Food do
+    name {'clone_ra-men'}
+    image {Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/clone_ra-men.jpeg'))}
+    content {'clone'}
+    company {'clone'}
+    price {'300'}
+    taste {'その他'}
+    genre {'コッテリ'}
+    scores {'3'}
   end
 end
