@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2022_06_17_055320) do
     t.integer "genre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "scores"
+    t.float "scores", default: 0.0
   end
 
   create_table "recipes", force: :cascade do |t|
