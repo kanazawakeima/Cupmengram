@@ -20,11 +20,11 @@ RSpec.describe 'フード機能', type: :system do
       it 'ラーメン詳細にいける' do
         expect(page).to have_content 'test_ra-men'
       end
-      # it 'レビューを投稿できる' do
-      #   binding.irb
-      #   click_on 'star'
-      #   click_on '投稿'
-      # end
+      it 'レビューを投稿できる' do
+        find('#star').click
+        click_on '投稿'
+        expect(page).to have_content '投稿しました。'
+      end
       it 'レビューを見れる' do
         click_on 'レビューをみる'
         expect(page).to have_content 'test_ra-menレビュー画面'
@@ -33,10 +33,10 @@ RSpec.describe 'フード機能', type: :system do
         click_on 'アレンジレシピをみる'
         expect(page).to have_content 'test_ra-menのアレンジレシピ'
       end
-      # it 'いいねができる' do
-      #   click_on 'like'
-      #   expect(page).to have_content '1いいね'
-      # end
+      it 'いいねができる' do
+        find('#like').click
+        expect(page).to have_content '1いいね'
+      end
     end
   end
   describe '管理者ユーザーテスト' do

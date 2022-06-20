@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     if @review.save
       @food.update(scores: review_avg_score)
-      redirect_to food_reviews_path(@review.food)
+      redirect_to food_reviews_path(@review.food), notice: "投稿しました。"
     else
       @food = Food.find(params[:food_id])
       render template: "foods/show"
