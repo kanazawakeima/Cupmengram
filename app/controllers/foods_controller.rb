@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :if_not_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_q, only: [:index, :search]
 
   # GET /foods or /foods.json
@@ -79,5 +80,11 @@ class FoodsController < ApplicationController
     # Only allow a list of trusted parameters through.
   def food_params
     params.require(:food).permit(:name, :image, :content, :company, :price, :taste, :genre, :image_cache)
+  end
+
+  def if_not_admin
+    unless current_user.admin?
+      redirect_to foods_path, alert: "管理者以外はアクセスできません"
+    end
   end
 end
