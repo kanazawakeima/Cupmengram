@@ -30,7 +30,8 @@ end
         company: '日清食品',
         price: '214',
         taste: 'しょうゆ',
-        genre: 'あっさり'
+        genre: 'あっさり',
+        scores: '0.0'
       },
       {
         name: 'カップヌードルシーフード',
@@ -39,7 +40,8 @@ end
         company: '日清食品',
         price: '214',
         taste: 'しお',
-        genre: 'あっさり'
+        genre: 'あっさり',
+        scores: '0.0'
       },
       {
         name: 'カップヌードルカレー',
@@ -48,7 +50,8 @@ end
         company: '日清食品',
         price: '214',
         taste: 'その他',
-        genre: 'コッテリ'
+        genre: 'コッテリ',
+        scores: '0.0'
       },
       {
         name: 'カップヌードルチリトマト',
@@ -57,7 +60,8 @@ end
         company: '日清食品',
         price: '214',
         taste: 'その他',
-        genre: '辛い'
+        genre: '辛い',
+        scores: '0.0'
       },
       {
         name: 'カップヌードルしお',
@@ -66,8 +70,8 @@ end
         company: '日清食品',
         price: '214',
         taste: 'しお',
-        genre: 'あっさり'
+        genre: 'あっさり',
+        scores: '0.0'
       }
     ]
   )
-  

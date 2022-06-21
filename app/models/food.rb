@@ -1,6 +1,6 @@
 class Food < ApplicationRecord
   mount_uploader :image, ImageUploader
-  enum taste: { しょうゆ: 0, しお: 1, とんこつ: 2, 味噌: 3, その他: 4 }
+  enum taste: { しょうゆ: 0, しお: 1, とんこつ: 2, 味噌: 3, 魚介: 4,  担々麺:5, その他:6  }
   enum genre: { あっさり: 0, コッテリ: 1, 辛い: 2 }
   has_many :reviews, dependent: :destroy
   has_many :recipes, dependent: :destroy
