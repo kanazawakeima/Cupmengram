@@ -25,7 +25,7 @@ end
     [
       {
         name: 'カップヌードル',
-        image: File.open('./app/assets/images/download-2.jpg'),
+        image: File.open('download-2.jpg'),
         content: '独特のつるみのある麺に、おなじみのオリジナルスープ。具材は味付豚ミンチ、ミンチポーク、エビ、スクランブルエッグ、ネギ。',
         company: '日清食品',
         price: '214',
