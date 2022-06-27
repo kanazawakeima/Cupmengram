@@ -11,7 +11,7 @@
 
 ```
    $ git clone git@github.com:kanazawakeima/Cupmengram.git
-   $ cd cupmenlog
+   $ cd Cupmengram
    $ bundle install
    $ rails db:create && rails db:migrate
    $ rails s
