@@ -8,7 +8,9 @@
   </div>
 </section>
 <% if current_user.admin? && (current_user == @user) %>
-  <%= link_to '管理者画面へ', rails_admin_path %>
+　<%= link_to rails_admin_path, class: "button is-info is-outlined" do %>
+　  管理者画面へ
+　<% end %>
 <% end %>
 <section class="section">
   <div class="container">

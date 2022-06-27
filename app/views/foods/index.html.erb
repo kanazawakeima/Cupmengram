@@ -10,10 +10,12 @@
 
 <div class="columns is-vcentered">
   <div class="column">
-    <h2>ラーメン検索</h2>
+  </div>
+  <div class="column is-half">
+    <h4 class="title is-4">ラーメン検索</h4>
     <div>
       <%= search_form_for @q, url: search_foods_path do |f| %>
-        <div class="column is-two-thirds">
+        <div class="column">
           <%= f.search_field :name_cont, class: "input is-smallfa-solid", placeholder: "キーワード検索 例)日清 しょうゆ" %>
         </div>
         <div class="select is-small">
@@ -39,7 +41,6 @@
       <a class="navbar-link">
         並び替え
       </a>
-
       <div class="navbar-dropdown is-hoverable">
         <div class="navbar-item">
           <%= sort_link(@q, :created_at, "新着順") %>

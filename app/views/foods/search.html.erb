@@ -1,5 +1,32 @@
-<h1>検索結果</h1>
-<%= sort_link(@q, :price, "値段") %>
+<section class="hero is-small has-background-danger-light">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        検索結果
+      </h1>
+    </div>
+  </div>
+</section>
+<div class="columns">
+  <div class="column is-one-quarter">
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link">
+        並び替え
+      </a>
+      <div class="navbar-dropdown is-hoverable">
+        <div class="navbar-item">
+          <%= sort_link(@q, :created_at, "新着順") %>
+        </div>
+        <div class="navbar-item">
+          <%= sort_link(@q, :price, "値段") %>
+        </div>
+        <div class="navbar-item">
+          <%= sort_link(@q, :scores, "人気") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <section class="section">
   <div class="container">
     <div class="columns is-multiline">
@@ -38,4 +65,6 @@
   </div>
 </section>
 
-<%= link_to 'Top', foods_path %>
+<%= link_to foods_path, class: "button is-rounded" do %>
+  戻る
+<% end %>
